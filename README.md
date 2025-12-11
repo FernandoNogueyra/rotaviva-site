@@ -1,6 +1,4 @@
-# rotaviva-site
-# rotaviva-site
-# rotaviva-site
-# rotaviva-site
-# rotaviva-site
-# rotaviva-site
+# Rota Viva
+
+Site institucional do projeto Rota Viva.
+Desenvolvido em HTML e CSS.
