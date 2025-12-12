@@ -27,34 +27,80 @@
       color:var(--text-dark);
       display:flex;
       justify-content:center;
+      font-size: 16px; /* Tamanho base para cálculo do em */
+    }
+
+    /* CONFIGURAÇÃO DA FONTE COM UNIDADE EM */
+    p {
+      font-size: 1em; /* Tamanho normal (16px) */
+      line-height: 1.6;
+    }
+
+    /* Títulos h2 com cor verde (exceto quando background é verde) */
+    .section h2 {
+      color: var(--green);
+    }
+    
+    /* Quando o background for verde, o h2 fica branco */
+    .green-section h2 {
+      color: var(--text-light);
+    }
+
+    @media (max-width: 480px) {
+      p {
+        font-size: 0.9em; /* 90% do tamanho base no celular */
+        line-height: 1.7;
+        text-align: left;
+      }
     }
 
     .wrap{width:100%; max-width:var(--maxw);}
 
-    /* Header */
+    /* HERO COM IMAGEM DE FUNDO */
     header{
-      background:var(--green);
-      padding:28px;
-      color:var(--text-light);
-      text-align:left;
-      display:flex;
-      flex-direction:column;
-      gap:16px;
+      position: relative;
+      width: 100%;
+      height: 500px;
+      background-image: url('background_opala.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--text-light);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
 
-    .hero-logo{
-      width:240px;
-      background:white;
-      padding:28px;
-      border-radius:var(--radius);
-      margin:24px auto;
+    header::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: 0;
+    }
+
+    header *{
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title{
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
 
     .hero-text{
-      font-size:28px;
-      max-width:380px;
-      line-height:1.4;
-      color:var(--text-light);
+      font-size: 26px;
+      max-width: 520px;
+      line-height: 1.4;
+      color:white;
     }
 
     .btn{
@@ -65,7 +111,23 @@
       border-radius:var(--radius);
       font-weight:600;
       text-decoration:none;
-      margin-top:12px;
+      margin-top:22px;
+    }
+
+    .social-header{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin-top:18px;
+      font-size:22px;
+    }
+
+    .social-header a{
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      font-size:20px;
     }
 
     /* Cards */
@@ -99,6 +161,9 @@
       background:#ccc;
       border-radius:var(--radius);
       margin-top:12px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .two-col{
@@ -134,7 +199,10 @@
       .two-col, .three-grid{
         grid-template-columns:1fr;
       }
-      header{text-align:center;}
+      header{
+        height:auto;
+        padding:60px 20px;
+      }
       .hero-text{margin:0 auto;}
     }
   </style>
@@ -144,158 +212,181 @@
 
     <!-- HERO HEADER -->
     <header>
-      <img src="logo-assinatura.png" alt="Assinatura" style="width:160px;">
-      <div class="hero-text">Caminhos que regeneram, experiências que transformam.</div>
+      <div class="hero-title">IFPI — IMPACTHON 2025</div>
+
+      <div class="hero-text">
+        Caminhos que regeneram, experiências que transformam.
+      </div>
+
       <a href="#negocio" class="btn">Saiba Mais</a>
 
-      <div class="hero-logo">
-        <img src="logo-rotaviva.png" alt="Rota Viva Logo" style="width:100%;">
-        <p style="color:var(--green);text-align:center;margin-top:12px;font-weight:600">Culture</p>
+      <div class="social-header">
+        <a href="https://www.instagram.com/rotavivap2/?utm_source=ig_web_button_share_sheet"
+           target="_blank" style="font-size:30px;">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://www.instagram.com/rotavivap2/?utm_source=ig_web_button_share_sheet"
+           target="_blank">
+          rotavivap2
+        </a>
       </div>
     </header>
 
     <!-- OBJETIVO / MISSÃO / VISÃO / VALORES -->
     <div class="cards">
       <div class="card-row">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
         <strong>Objetivo:</strong>
         Promover experiências culturais e regenerativas que valorizem o território, sua gente e suas tradições.
+        </div>
       </div>
-
       <div class="card-row">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
         <strong>Missão:</strong>
         Ser referência nacional em turismo regenerativo, incentivando conexões humanas verdadeiras, consciência ambiental e fortalecimento econômico local.
+        </div>
       </div>
-
       <div class="card-row">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
         <strong>Visão:</strong>
         Inspirar e conectar pessoas por meio de vivências transformadoras que respeitam o ritmo da natureza e a identidade cultural de cada comunidade.
+        </div>
       </div>
-
       <div class="card-row">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
         <strong>Valores:</strong>
         Regeneração, Criatividade, Transparência, Pertencimento, Sustentabilidade e Inclusão.
+        </div>
       </div>
     </div>
 
     <!-- NEGÓCIO -->
     <section id="negocio" class="section">
-      <h2>Negócio</h2>
+      <h2 style="text-align: center;">Negócio</h2>
       <div class="two-col">
-        <div>
+        <div style="text-align: justify;">
           <p>
             A Rota Viva Culture é uma iniciativa dedicada à criação de rotas turísticas regenerativas, baseadas na cultura local e na valorização das tradições que inspiram a região. Buscamos promover experiências imersivas que conectam visitantes ao território, estimulando a economia criativa, a preservação ambiental e o protagonismo das comunidades envolvidas.
           </p>
         </div>
-        <div class="img-block"></div>
+        <div class="img-block" style="background-image: url('teste_imagem.avif');"></div>
       </div>
     </section>
 
     <!-- PEDRO II -->
     <section class="section">
-      <h2>Pedro II</h2>
-
-      <div class="two-col">
+      <h2 style="text-align: center;">Pedro II</h2>
+      
+      <div style="max-width: 800px; margin: 0 auto; text-align: justify;">
         <p>
           Pedro II é uma cidade que respira cultura, arte e natureza. Localizada no coração da Serra dos Matões, é conhecida por seu clima ameno, cachoeiras cristalinas, joias artesanais e tradições que atravessam gerações. Suas montanhas e trilhas revelam uma paisagem única, perfeita para o turismo ecológico e regenerativo.
         </p>
-
         <p>
           A cidade também se destaca pela força de seus artesãos e pela riqueza de sua música, gastronomia e história. Cada rua, cada pedra de opala e cada canto da serra guardam histórias que merecem ser contadas e vividas. É aqui que nasce a essência da Rota Viva Culture.
         </p>
       </div>
-
+      
       <div class="three-grid">
-        <div class="img-block"></div>
-        <div class="img-block"></div>
-        <div class="img-block"></div>
+        <div class="img-block" style="background-image: url('cachoeira.jpg');"></div>
+        <div class="img-block" style="background-image: url('pedro_I.jpeg'); "></div>
+        <div class="img-block" style="background-image: url('sitio_arque.jpg');"></div>
       </div>
     </section>
 
     <!-- ROTAS -->
     <section class="green-section">
-      <h2>Rotas</h2>
+      <h2 style="text-align: center;">Rotas</h2>
 
-      <p>
-        <strong>Rota 1 — Trilhas Regenerativas:</strong>
-        Vivências guiadas pela natureza, integrando conhecimento ambiental, cuidado com o território e imersões sensoriais.
-      </p>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <p>
+          <strong>Rota 1 — Trilhas Regenerativas:</strong>
+          Vivências guiadas pela natureza, integrando conhecimento ambiental, cuidado com o território e imersões sensoriais.
+        </p>
 
-      <p>
-        <strong>Rota 2 — Rota das Joias e Artesãos:</strong>
-        Um percurso que celebra o talento local, desde a extração e lapidação da opala até o encontro com mestres artesãos que mantêm viva a tradição.
-      </p>
+        <p>
+          <strong>Rota 2 — Rota das Joias e Artesãos:</strong>
+          Um percurso que celebra o talento local, desde a extração e lapidação da opala até o encontro com mestres artesãos que mantêm viva a tradição.
+        </p>
+      </div>
     </section>
 
     <!-- PROPÓSITO -->
     <section class="section">
-      <h2>Temos um propósito</h2>
+      <h2 style="text-align: center;">Temos um propósito</h2>
       <div class="two-col">
-        <p>
-          Criamos experiências que conectam pessoas, fortalecem comunidades e honram a sabedoria ancestral do território. Queremos que cada visitante se reconheça como parte da regeneração da natureza e do desenvolvimento cultural local.
-        </p>
-        <div class="img-block"></div>
+        <div style="text-align: justify;">
+          <p>
+            Criamos experiências que conectam pessoas, fortalecem comunidades e honram a sabedoria ancestral do território. Queremos que cada visitante se reconheça como parte da regeneração da natureza e do desenvolvimento cultural local.
+          </p>
+        </div>
+        <div class="img-block" style="background-image: url('propos.jpg');"></div>
       </div>
     </section>
 
     <!-- ECONOMIAS -->
     <section class="section">
-      <h2>Economia Circular</h2>
+      <h2 style="text-align: center;">Economia Circular</h2>
       <div class="two-col">
-        <p>
-          Nada se perde, tudo se transforma. Trabalhamos com práticas que reaproveitam recursos, reduzem impactos e incentivam a criação colaborativa entre visitantes, moradores, produtores e artesãos.
-        </p>
-        <div class="img-block"></div>
+        <div style="text-align: justify;">
+          <p>
+            Nada se perde, tudo se transforma. Trabalhamos com práticas que reaproveitam recursos, reduzem impactos e incentivam a criação colaborativa entre visitantes, moradores, produtores e artesãos.
+          </p>
+        </div>
+        <div class="img-block" style="background-image: url('economia_circular.jpg');"></div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Economia Regenerativa</h2>
+      <h2 style="text-align: center;">Economia Regenerativa</h2>
       <div class="two-col">
-        <p>
-          Mais que preservar, queremos regenerar. Buscamos revitalizar ecossistemas, impulsionar a economia local e promover relações que deixem uma contribuição positiva para o território.
-        </p>
-        <div class="img-block"></div>
+        <div style="text-align: justify;">
+          <p>
+            Mais que preservar, queremos regenerar. Buscamos revitalizar ecossistemas, impulsionar a economia local e promover relações que deixem uma contribuição positiva para o território.
+          </p>
+        </div>
+        <div class="img-block" style="background-image: url('economia-regenerativa.jpg');"></div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Economia Donut</h2>
+      <h2 style="text-align: center;">Economia Donut</h2>
       <div class="two-col">
-        <p>
-          A Economia Donut guia nossas decisões com equilíbrio entre prosperidade humana e limites ecológicos. Um modelo que inspira desenvolvimento sustentável, respeito ao meio ambiente e justiça social.
-        </p>
-        <div class="img-block"></div>
+        <div style="text-align: justify;">
+          <p>
+            A Economia Donut guia nossas decisões com equilíbrio entre prosperidade humana e limites ecológicos. Um modelo que inspira desenvolvimento sustentável, respeito ao meio ambiente e justiça social.
+          </p>
+        </div>
+        <div class="img-block" style="background-image: url('donut.jpg');"></div>
       </div>
     </section>
 
     <footer style="background: var(--green); color: white; padding: 50px 20px; border-radius: var(--radius); margin-top: 40px;">
+      <h2 style="text-align:center; margin-bottom:20px; font-weight:700;">
+        ROTA VIVA — CULTURE
+      </h2>
 
-  <h2 style="text-align:center; margin-bottom:20px; font-weight:700;">
-    ROTA VIVA — CULTURE
-  </h2>
+      <div style="text-align:center; line-height:1.8; font-size:16px;">
 
-  <div style="text-align:center; line-height:1.8; font-size:16px;">
+        <p>Rua Manoel Nogueira Lima, 650 — Pedro II, Piauí</p>
+        <p>Tel: (86) 99469-367</p>
+        <p>Email: <strong>rotavivaculturep2@gmail.com</strong></p>
 
-    <p>Rua Manoel Nogueira Lima, 650 — Pedro II, Piauí</p>
-    <p>Tel: (86) 99469-367</p>
-    <p>Email: <strong>rotavivaculturep2@gmail.com</strong></p>
+        <div style="margin-top:12px; display:flex; justify-content:center; align-items:center; gap:8px; font-size:20px;">
+          <a href="https://www.instagram.com/rotavivap2/?utm_source=ig_web_button_share_sheet"
+             target="_blank"
+             style="color:white; text-decoration:none; font-size:28px;">
+            <i class="fab fa-instagram"></i>
+          </a>
 
-    <div style="margin-top:12px; display:flex; justify-content:center; align-items:center; gap:8px; font-size:20px;">
-      <a href="https://www.instagram.com/rotavivap2/?utm_source=ig_web_button_share_sheet"
-         target="_blank"
-         style="color:white; text-decoration:none; font-size:28px;">
-        <i class="fab fa-instagram"></i>
-      </a>
+          <a href="https://www.instagram.com/rotavivap2/?utm_source=ig_web_button_share_sheet"
+             target="_blank"
+             style="color:white; text-decoration:none; font-weight:600;">
+            rotavivap2
+          </a>
+        </div>
 
-      <a href="https://www.instagram.com/rotavivap2/?utm_source=ig_web_button_share_sheet"
-         target="_blank"
-         style="color:white; text-decoration:none; font-weight:600;">
-        rotavivap2
-      </a>
-    </div>
-
-  </div>
-
+      </div>
     </footer>
 
   </div>
